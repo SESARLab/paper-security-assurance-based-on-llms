@@ -1,0 +1,68 @@
+{"role": "user", "content": """
+    Host1: 192.168.100.1
+        - VerneMQ Broker (port 1337)
+        - Nginx web server (port 8080)
+        - Apache web server (port 8081)
+        - pfsense installation (Apache admin panel on port 8082)
+    
+    Verify 1.1.3 and 5.1.1
+    """},
+        {"role": "assistant", "content": """[
+            {"host": "all - 1.1.3", "probe": "inventory-verification"},
+            {"host": "192.168.100.1 - Entire host - 1.1.3", "probe": "portlist"},
+            {"host": "192.168.100.1 - VerneMQ Broker - 5.1.1", "probe": "vernemq-acl"},
+            {"host": "192.168.100.1 - Nginx web server - 5.1.1", "probe": "nginx-conf"},
+            {"host": "192.168.100.1 - Apache web server - 5.1.1", "probe": "apache-cis"},
+        ]"""}
+
+{"role": "user", "content": """Here's an example of probe selection to clarify the usage: 
+    Given the network inventory: 
+    
+    Host1: IPADDRESS
+
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ai-integrity-behavior-simple"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ai-robustness-evasion"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ai-robustness-evasion-fake"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ai-robustness-poisoning"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "aide-oneshot-new"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "apache-cis"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "assurance-engine-basic-probe"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "Basic Git Probe"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "curl"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "disk-free"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "fairness-ssh"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "find"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "Git CI basic probe"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "Git CI Test Injection"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "heartbleed-new"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "infowebsite"},
+    {"host": "all - ControlID", "probe": "inventory-verification"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "joomla-checker-1"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "lightweight-vuln-scan"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "metasploit-new"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ML Assessment"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ML metric checker"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "vernemq-acl"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "vernemq-base-probe"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "vernemq-cve"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "vernemq-fuzzing"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "vernemq-tls-server"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "observatory"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "openvas-new"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "openscap"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ping"},
+    {"host": "IPADDRESS - Entire host - ControlID", "probe": "portlist"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "Prometheus Raw"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "Prometheus Rules"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "ssh-scan"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "sslyze"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "unimiwebsite"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "web-vuln-scan"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "wp-scan"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "pfsense-audit"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "pfsense-waf"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "nginx-conf"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "mosquitto-base-probe"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "mysql-conf"},
+    {"host": "IPADDRESS - servicename - ControlID", "probe": "postgressql-conf"}
+"""}

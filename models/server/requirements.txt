@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+transformers
+python-dotenv
+accelerate
+bitsandbytes
+peft
+datasets

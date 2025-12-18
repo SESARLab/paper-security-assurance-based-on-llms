@@ -1,0 +1,182 @@
+[
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"mysql-conf\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"nginx-conf\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.18 - LLM model API\\\", \\\"probe\\\": \\\"ML metric checker\\\"},\\n  {\\\"host\\\": \\\"10.3.14.18 - LLM model API\\\", \\\"probe\\\": \\\"ML Assessment\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker (port 1338)\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - Mosquitto MQTT Broker (port 8338)\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"inventory-verification\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ssh-scan\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\nBased on the above reasoning, the following probes are selected:\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"pfsense-audit\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"pfsense-waf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"web-vuln-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"infowebsite\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"observatory\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache Web server\\\", \\\"probe\\\": \\\"web-vuln-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache Web server\\\", \\\"probe\\\": \\\"infowebsite\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache Web server\\\", \\\"probe\\\": \\\"observatory\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"web-vuln-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"infowebsite\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"observatory\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"vernemq-cve\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"vernemq-cve\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"vernemq-cve\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ Broker\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ Broker\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"disk-free\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"Git CI basic probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"Metasploit-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - LLM model API\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"lightweight-vuln-scan\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"All\\\", \\\"probe\\\": \\\"assurance-engine-basic-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - LLM model API\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"infowebsite\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"nginx-conf\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"fairness-ssh\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"fairness-ssh\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"nginx-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - MySQL\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - MySQL\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana\\\", \\\"probe\\\": \\\"nginx-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - PostgreSQL\\\", \\\"probe\\\": \\\"postgres-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - Prometheus\\\", \\\"probe\\\": \\\"prometheus-raw\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"vernemq-acl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"vernemq-acl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"vernemq-acl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"nginx-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - mosquitto\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - mosquitto\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - mosquitto\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - mosquitto\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"metasploit-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - mosquitto\\\", \\\"probe\\\": \\\"metasploit-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - mosquitto\\\", \\\"probe\\\": \\\"metasploit-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"apache-cis\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"apache-cis\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker (port 8338)\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - VerneMQ MQTT Broker (port 1338)\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"Prometheus Raw\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"pfsense-waf\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-acl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-cve\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-fuzzing\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - MySQL\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto\\\", \\\"probe\\\": \\\"mosquitto-base-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"nginx-conf\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - LLM model API\\\", \\\"probe\\\": \\\"ai-integrity-behavior-simple\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-evasion\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.13 - Traefik\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Traefik\\\", \\\"probe\\\": \\\"heartbleed-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - Apache admin panel\\\", \\\"probe\\\": \\\"apache-cis\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - Apache admin panel\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ssh-scan\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-cve\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-tls-server\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.13 - Traefik port 3000\\\", \\\"probe\\\": \\\"OpenVAS-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Traefik port 3000\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"143.34.2.1 - AWS ElastiCache\\\", \\\"probe\\\": \\\"portlist\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - AWS ElasticSearch\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-evasion\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"56.3.1.42 - AWS Backup bucket\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - AWS Backup bucket\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - AWS Backup bucket\\\", \\\"probe\\\": \\\"inventory-verification\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"openscap\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"nginx-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Grafana on Apache Web server on port 1337\\\", \\\"probe\\\": \\\"postgressql-conf\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"postgressql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-base-probe\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ping\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"ssh-scan\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Justification\\n\\n- **apache-cis**: This probe is specifically designed to check the Apache HTTP Server against the CIS benchmark, which aligns with the requirement to verify compliance with CIS hardening practices.\\n- **pfsense-audit**: This probe is specifically designed to check for common misconfigurations in pfSense, which aligns with the requirement to verify compliance with pfSense hardening practices.\\n\\nBy selecting these two probes, we ensure that the application server (Host1) is thoroughly checked for both CIS and pfSense hardening practices, addressing the requirements specified in the query.\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-cve\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"vernemq-acl\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"56.3.1.42 - AWS Backup bucket\\\", \\\"probe\\\": \\\"heartbleed-new\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - AWS Backup bucket\\\", \\\"probe\\\": \\\"pfsense-audit\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"aide-oneshot-new\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"openvas-new\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"sslyze\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Justification\\n\\n- **`openvas-new`**: This probe is chosen for its comprehensive vulnerability scanning capabilities, ensuring that any potential vulnerabilities in the AWS ElastiCache and ElasticSearch services are detected.\\n- **General Configuration Verification**: While specific probes for AWS services are not available, general security practices and possibly custom scripts can be used to verify the configuration of these services. However, for the sake of this task, we focus on the available probes and their capabilities.\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-evasion\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"ai-robustness-poisoning\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"ssh-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"pfsense-audit\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"pfsense-waf\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n[\\n  {\\\"host\\\": \\\"10.3.14.15 - MySQL\\\", \\\"probe\\\": \\\"mysql-conf\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache\\\", \\\"probe\\\": \\\"web-vuln-scan\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - SSH\\\", \\\"probe\\\": \\\"ssh-scan\\\"}\\n]\"}]"
+  },
+  {
+    "conf": "Selected Probes\\n\\n```json\\n[\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - nginx\\\", \\\"probe\\\": \\\"curl\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache Web server\\\", \\\"probe\\\": \\\"sslyze\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Apache Web server\\\", \\\"probe\\\": \\\"curl\\\"}\\n]\\n```\"}]"
+  },
+  {
+    "conf": "\\n\\n[\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.1 - PfSense installation\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.10 - Application server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - Primary Database server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.11 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Cache server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"143.34.2.1 - Logging server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - Load balancer\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.13 - API Gateway\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"56.3.1.42 - Backup server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Monitoring server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Mosquitto MQTT Broker\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.15 - Secondary Database server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - File storage server\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.16 - VerneMQ MQTT Broker\\\", \\\"probe\\\": \\\"find\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"disk-free\\\"},\\n  {\\\"host\\\": \\\"10.3.14.17 - LLM model API\\\", \\\"probe\\\": \\\"find\\\"}\\n]\"}]"
+  }
+]

@@ -1,0 +1,220 @@
+query,expected,actual,result,score
+Host 1 is at 34.2.1.4. Host 1 contains an MQTT broker and I want to verify that the communication between the client and the MQTT broker is encrypted. I need to be sure that the machine is reachable by ssh. Then i want to be sure about the integrity of /bin/folder. ,,"{
+  ""config"": {
+    ""target"": ""34.2.1.4"",
+    ""port"": 8883,
+    ""ssh_port"": 2200,
+    ""config_filename"": ""vernemq.conf"",
+    ""temp_path"": ""/tmp/"",
+    ""config_path"": ""/etc/vernemq/"",
+    ""cafile"": ""/etc/vernemq/ca_certificates/ca.crt"",
+    ""cakey"": ""/etc/vernemq/ca_certificates/ca.key"",
+    ""keyfile"": ""/etc/vernemq/certs/server.key"",
+    ""certfile"": ""/etc/vernemq/certs/server.crt"",
+    ""dirs_to_check"": [
+      ""/bin/folder""
+    ]
+  }
+}",,0
+Host 1 is at 34.2.1.4. Host 1 contains an MQTT broker and I want to verify that the communication between the client and the MQTT broker is encrypted. I need to be sure that the machine is reachable by ssh. Then i want to be sure about the integrity of /bin/folder. ,,"{
+  ""config"": {
+    ""target"": ""34.2.1.4"",
+    ""port"": ""1883"",
+    ""scan_type"": ""mqtt"",
+    ""path"": ""/bin/folder"",
+    ""mode"": [
+      ""verify_encryption"",
+      ""verify_ssh_reachability""
+    ]
+  }
+}",,0
+Host 1 is at 34.2.1.4. Host 1 contains an MQTT broker and I want to verify that the communication between the client and the MQTT broker is encrypted. I need to be sure that the machine is reachable by ssh. Then i want to be sure about the integrity of /bin/folder. ,,ERROR,ERROR,0
+Host 1 is at 10.4.5.2. There is a web server on port 8083. I want to verify the mozilla guidelines on this web server,,"{
+  ""config"": {
+    ""url"": ""http://10.4.5.2:8083""
+  },
+  ""scan_setting"": {
+    ""minimum_threshold"": ""D""
+  }
+}",,1
+Host 1 is at 172.22.1.15. I want to find all files with SUID permissions.,,"{
+  ""credential"": {
+    ""username"": ""mooncloud"",
+    ""password"": ""mooncloud""
+  },
+  ""find"": {
+    ""if_found"": ""false"",
+    ""override"": ""-perm /u+x"",
+    ""path"": ""/"",
+    ""title"": "".""
+  },
+  ""config"": {
+    ""host"": ""172.22.1.15"",
+    ""port"": ""9024""
+  }
+}",,1
+"Host 1 is at 90.3.4.1, Host 2 is at 90.3.4.2. Host 1 offers a web server on port 1345 and the confidentiality of the channel must be ensured. Then, I want to check that the disk usage on host 2 is nominal. ",,"{
+  ""config"": {
+    ""host"": ""90.3.4.2""
+  },
+  ""connect_to_server"": {
+    ""port"": 22,
+    ""username"": ""jira"",
+    ""password"": ""io""
+  },
+  ""partition_list"": ""/dev/sda1,/dev/mapper/centos-root"",
+  ""safe_percentage"": ""95%""
+}",,1
+"Host 1 is at 90.3.4.1, Host 2 is at 90.3.4.2. Host 1 offers a web server on port 1345 and the confidentiality of the channel must be ensured. Then, I want to check that the disk usage on host 2 is nominal. ",,"{
+  ""config"": {
+    ""target"": ""90.3.4.1"",
+    ""ports"": 1345
+  }
+}
+
+{
+  ""config"": {
+    ""target"": ""90.3.4.2"",
+    ""ports"": 22
+  }
+}",,-1
+"Host 1 is at 45.2.1.2. I want to verify that host 1 is reachable by using ICMP and I want to check that the ML model running on in on port 4555 meets accuracy = 1, recall = 0.9 and precision = 0.9",,"{
+  ""config"": {
+    ""target"": ""45.2.1.2"",
+    ""port"": ""4555""
+  },
+  ""script"": {
+    ""path"": ""/home/ec2-user/check-metrics.sh""
+  },
+  ""metrics"": {
+    ""basic_response"": ""Yes"",
+    ""accuracy"": ""1"",
+    ""precision"": ""0.9"",
+    ""recall"": ""0.9"",
+    ""specificity"": ""0""
+  }
+}",,-2
+"Host 1 is at 45.2.1.2. I want to verify that host 1 is reachable by using ICMP and I want to check that the ML model running on in on port 4555 meets accuracy = 1, recall = 0.9 and precision = 0.9",,"{""config"": {""icmp"": {""host"": ""45.2.1.2""}}}
+
+{""config"": {""ml"": {""host"": ""45.2.1.2"", ""port"": 4555, ""accuracy"": 1, ""recall"": 0.9, ""precision"": 0.9}}}",,-1
+"Host 1 is at 172.30.20.180, Host 2 is at 172.30.20.181, Host 3 is at 172.30.20.182, Host 4 is at 172.30.20.183. Host 1 runs a web server, Host 2 runs a database, Host 3 is a backup server, and Host 4 is a monitoring server. I need to check for vulnerabilities on Host 1, verify disk usage on Host 2, check file integrity on Host 3, and verify that Host 4 can reach all other hosts with ping.",,"{
+  ""config"": {
+    ""host"": ""172.30.20.180""
+  },
+  ""connect_to_server"": {
+    ""port"": 22,
+    ""username"": ""jira"",
+    ""password"": ""io""
+  },
+  ""scan"": {
+    ""type"": ""vulnerability""
+  }
+}
+
+{
+  ""config"": {
+    ""host"": ""172.30.20.181""
+  },
+  ""connect_to_server"": {
+    ""port"": 22,
+    ""username"": ""jira"",
+    ""password"": ""io""
+  },
+  ""partition_list"": ""/dev/sda1,/dev/mapper/centos-root"",
+  ""safe_percentage"": ""95%""
+}
+
+{
+  ""config"": {
+    ""host"": ""172.30.20.182""
+  },
+  ""connect_to_server"": {
+    ""port"": 22,
+    ""username"": ""jira"",
+    ""password"": ""io""
+  },
+  ""file_list"": ""/var/log,/etc/passwd,/etc/group"",
+  ""hash_file"": ""/etc/passwd""
+}
+
+{
+  ""config"": {
+    ""host"": ""172.30.20.183""
+  },
+  ""connect_to_server"": {
+    ""port"": 22,
+    ""username"": ""jira"",
+    ""password"": ""io""
+  },
+  ""ping"": {
+    ""hosts"": [""172.30.20.180"", ""172.30.20.181"", ""172.30.20.182""]
+  }
+}",,-1
+"Host 1 is at 172.30.20.180, Host 2 is at 172.30.20.181, Host 3 is at 172.30.20.182, Host 4 is at 172.30.20.183. Host 1 runs a web server, Host 2 runs a database, Host 3 is a backup server, and Host 4 is a monitoring server. I need to check for vulnerabilities on Host 1, verify disk usage on Host 2, check file integrity on Host 3, and verify that Host 4 can reach all other hosts with ping.",,ERROR,ERROR,0
+"Host 1 is at 172.30.20.180, Host 2 is at 172.30.20.181, Host 3 is at 172.30.20.182, Host 4 is at 172.30.20.183. Host 1 runs a web server, Host 2 runs a database, Host 3 is a backup server, and Host 4 is a monitoring server. I need to check for vulnerabilities on Host 1, verify disk usage on Host 2, check file integrity on Host 3, and verify that Host 4 can reach all other hosts with ping.",,"{
+  ""config"": {
+    ""hosts"": [
+      {
+        ""host"": ""172.30.20.180"",
+        ""tasks"": [
+          {
+            ""task"": ""vulnerability_scan"",
+            ""config"": {
+              ""service"": ""web_server""
+            }
+          }
+        ]
+      },
+      {
+        ""host"": ""172.30.20.181"",
+        ""tasks"": [
+          {
+            ""task"": ""disk_usage"",
+            ""config"": {}
+          }
+        ]
+      },
+      {
+        ""host"": ""172.30.20.182"",
+        ""tasks"": [
+          {
+            ""task"": ""file_integrity"",
+            ""config"": {}
+          }
+        ]
+      },
+      {
+        ""host"": ""172.30.20.183"",
+        ""tasks"": [
+          {
+            ""task"": ""ping"",
+            ""config"": {
+              ""hosts"": [""172.30.20.180"", ""172.30.20.181"", ""172.30.20.182""]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}",,-1
+"Host 1 is at 172.30.20.180, Host 2 is at 172.30.20.181, Host 3 is at 172.30.20.182, Host 4 is at 172.30.20.183. Host 1 runs a web server, Host 2 runs a database, Host 3 is a backup server, and Host 4 is a monitoring server. I need to check for vulnerabilities on Host 1, verify disk usage on Host 2, check file integrity on Host 3, and verify that Host 4 can reach all other hosts with ping.",,"{
+  ""config"": {
+    ""host"": ""172.30.20.180""
+  },
+  ""Scan settings"": {
+    ""tcp_ports"": ""22,80,443"",
+    ""udp_ports"": """"
+  }
+}",,1
+"Host 1 is at 172.30.20.180, Host 2 is at 172.30.20.181, Host 3 is at 172.30.20.182, Host 4 is at 172.30.20.183. Host 1 runs a web server, Host 2 runs a database, Host 3 is a backup server, and Host 4 is a monitoring server. I need to check for vulnerabilities on Host 1, verify disk usage on Host 2, check file integrity on Host 3, and verify that Host 4 can reach all other hosts with ping.",,"{
+  ""config"": {
+    ""url"": ""http://172.30.20.180""
+  },
+  ""Scan settings"": {
+    ""threshold"": 70
+  }
+}",,1
+"Host 1 is at 34.2.4.5, Host 2 is at 34.2.4.6. Host 1 offers a DB on port 8076, Host 2 a firewall. I want to be sure that the system is compliant to the CSA control matrix",,"{""config"": {""host"": ""34.2.4.5"", ""port"": 8076, ""service"": ""database""}} 
+
+{""config"": {""host"": ""34.2.4.6"", ""service"": ""firewall""}}",,0
+TOTAL,,,,-1

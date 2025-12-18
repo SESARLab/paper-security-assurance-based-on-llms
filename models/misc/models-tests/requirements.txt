@@ -1,0 +1,9 @@
+transformers
+huggingface_hub[cli]
+fastapi
+uvicorn
+python-dotenv
+bitsandbytes
+accelerate
+odfpy
+sentencepiece

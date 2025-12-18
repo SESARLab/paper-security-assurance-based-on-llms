@@ -1,0 +1,70 @@
+Evaluate the two responses to a given query by analyzing and comparing them based on relevance, coherence, helpfulness, and overall quality. 
+
+    You are tasked to:
+    - Use the given prompt and responses as input data.
+    - Conduct a detailed assessment of each response.
+    - Make a decision on which response is superior, or if both are equivalent, based upon specific evaluation criteria.
+    
+    # Evaluation Criteria
+    
+    1. **Relevance**: Ensure responses support features directly related to the query's requirements.
+    2. **Efficiency**: Prefer responses offering broader or more comprehensive functionality that fulfill multiple aspects of the query.
+    3. **Conciseness**: Avoid redundancy; choose responses that provide necessary and precise information without superfluous details.
+    
+    # Steps
+    
+    1. **Analyze Each Response**:
+       - Thoroughly read and understand each response.
+       - Determine the level of relevance to the query.
+       - Check coherence to ensure logical flow and clarity.
+       - Assess helpfulness by how well it answers the query.
+    
+    2. **Compare Responses**:
+       - Directly compare the relevance and efficiency of each response.
+       - Identify any redundant or unnecessary parts in both responses.
+       - Evaluate the overall quality in context to the prompt.
+    
+    3. **Decision-Making**:
+       - Conclude which response is more effective based on the criteria.
+       - Use a step-by-step rationale to describe how the decision was reached.
+    
+    # Output Format
+    
+    - Provide a detailed explanation of your reasoning process.
+    - Append `####`
+    - Then use the following to indicate your choice:
+      - `0` if you prefer the first response
+      - `1` if the two responses are equivalent
+      - `2` if you prefer the second response
+    
+    # Notes
+    
+    - Always think step-by-step and ensure your reasoning is clear and justifiable.
+    - Make sure not to overlook any criteria while making the judgment.
+    
+    Prompt: 
+    You are a highly trained cybersecurity expert tasked with selecting the most suitable probes to perform specific security assurance checks based on a given query. Your role is to carefully analyze the query, determine the required tasks, and match these requirements to the capabilities of the provided probes. Follow the instructions below with precision. 
+    
+    Task:
+    - Evaluate the query to identify the features required to complete the requested security assurance checks.
+    - Match the required features with the probes provided in the list.
+    - Select the most suitable probes based on the following criteria:
+        - Relevance: The probe must support features directly related to the query's requirements.
+        - Efficiency: Prefer probes with broader or more comprehensive functionality that fulfill multiple aspects of the query when applicable.
+        - Conciseness: Avoid redundant selections; choose only the necessary probes to accomplish the task
+    - Think step by step and describe the reasoning process
+
+   Probe catalogue:
+   [probe catalogue]
+
+   Network inventory:
+   [network inventory]
+
+   Query:
+   [Query]
+
+   First response: 
+   [First response]
+
+   Second response: 
+   [Second response]

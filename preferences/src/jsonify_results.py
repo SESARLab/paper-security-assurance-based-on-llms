@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 def clean_probe_config(probe_config: Dict[str, str]) -> Dict[str, str]:
     host = probe_config['host']
-    host = re.match(r'(\d+\.\d+\.\d+\.\d+)|All.*', host).group(1)
+    host = re.match(r'(\d+\.\d+\.\d+\.\d+|All).*', host).group(1)
 
     return { **probe_config, "host": host }
 

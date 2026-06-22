@@ -1,0 +1,2458 @@
+Input,Output
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Test the LLM against poison attacks. Verify that all the MQTT broker installations are secure. Verify the channel's confidentiality for all the Apache installations.","[
+        {""host"": ""10.3.14.17 - LLM model API"", ""probe"": ""ai-robustness-poisoning""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-acl""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-tls-server""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-cve""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-fuzzing""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-acl""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-tls-server""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-cve""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-fuzzing""},
+        {""host"": ""10.3.14.15 - Mosquitto"", ""probe"": ""mosquitto-base-probe""},
+        {""host"": ""10.3.14.1 - PfSense"", ""probe"": ""sslyze""},
+        {""host"": ""10.3.14.15 - Apache Web server"", ""probe"": ""sslyze""}
+    ]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the MQTT brokers are available and the anonymous login is disabled","[
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.15 - Mosquitto"", ""probe"": ""mosquitto-base-probe""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify the Dbs configurations","[
+        {""host"": ""10.3.14.11 - MySQL"", ""probe"": ""mysql-conf""},
+        {""host"": ""10.3.14.15 - MySQL"", ""probe"": ""mysql-conf""},
+        {""host"": ""10.3.14.16 – File storage server"", ""probe"": ""postgressql-confl""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that only the Nginx web servers are not vulnerable to known attacks","[
+        {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""lightweidht-vuln-scan""},
+        {""host"": ""10.3.14.10 - Nginx"", ""probe"": ""web-vuln-scan""},
+        {""host"": ""10.3.14.10 – Nginxr"", ""probe"": ""heartbleed-newl""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the LLM model performs with all indexes of 0.9","[
+        {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""ML metric checker""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that there are no setuid files on host7","[
+        {""host"": ""10.3.14.16 – Host7"", ""probe"": ""find""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the VerneMQ brokers are not vulnerable to fuzzing","[
+        {""host"": ""10.3.14.11 – VerneMQ MQTT BrokerI"", ""probe"": ""vernemq-fuzzingr""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-fuzzing""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that logging is enable on Mosquitto brokers","[
+        {""host"": ""10.3.14.15 – Mosquitto MQTT broker"", ""probe"": ""mosquitto-base-probe""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify the network inventory, verify that ssh is correctly configured on the hosts","[
+        {""host"": ""All"", ""probe"": ""inventory-verification""},
+        {""host"": ""10.3.14.1 - R0"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.10 - Host1"", ""probe"": ""ssh-scan""},
+        {""host"": ""143.34.2.1 - Host3"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.11 - Host2"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.13 - Host4"", ""probe"": ""ssh-scan""},
+        {""host"": ""56.3.1.42 - Host5"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.15 - Host6"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.16 - Host7"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.17 - Host8"", ""probe"": ""ssh-scan""}
+    ]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the API gateway is secure","[
+        {""host"": ""10.3.14.1 – Nginx"", ""probe"": ""lightweidht-vuln-scan""},
+        {""host"": ""10.3.14.1 - Nginx"", ""probe"": ""web-vuln-scan""},
+        {""host"": ""10.3.14.1 – Nginxr"", ""probe"": ""heartbleed-newl""}
+]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Extract all the available information from the web servers","[
+        {""host"": ""10.3.14.1 - Pfsense"", ""probe"": ""infowebsite""},
+        {""host"": ""10.3.14.10 - Nginx"", ""probe"": ""infowebsite""},
+        {""host"": ""10.3.14.13 – API Gateway"", ""probe"": ""infowebsite""},
+        {""host"": ""10.3.14.15 – Grafana on Apache"", ""probe"": ""infowebsite""}
+    ]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify the file system’s integrity on all hosts","[
+        {""host"": ""10.3.14.1 - R0"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.10 - Host1"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""143.34.2.1 - Host3"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.11 - Host2"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.13 - Host4"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""56.3.1.42 - Host5"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.15 - Host6"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.16 - Host7"", ""probe"": ""aide-oneshot-new""},
+        {""host"": ""10.3.14.17 - Host8"", ""probe"": ""aide-oneshot-new""}
+    ]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Validate VerneMQ TLS setup and check for potential CVEs.","[
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-tls-server""},
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-cve""},{""host"": ""10.3.14.16 – VerneMQ"", ""probe"": ""vernemq-tls-server""},
+  {""host"": ""10.3.14.16 – VerneMQ"", ""probe"": ""vernemq-cve""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Check integrity and poisoning robustness of deployed LLM model","[
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""ai-integrity-behavior-simple""},
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""ai-robustness-poisoning""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Assess SSH service security on host7 and test against evasion techniques.","[
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""ai-robustness-evasion-fake""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Scan for potential vulnerabilites on VerneMQ installations","[
+  {""host"": ""10.3.14.11 – VerneMQ MQTT Broker"", ""probe"": ""vernemq-cve""},
+  {""host"": ""10.3.14.12 – VerneMQT MQTT Broker"", ""probe"": ""vernemq-cve""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Evaluate OpenVAS scan results and verify disk usage on host1","[
+  {""host"": ""10.3.14.15 – Host1"", ""probe"": ""openvas-new""},
+  {""host"": ""10.3.14.15 – Host1"", ""probe"": ""disk-free""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Assess Git CI pipeline security and integrity on host7","[
+  {""host"": ""10.3.14.16 – Git Server"", ""probe"": ""Git CI basic probe""},
+  {""host"": ""10.3.14.16 – Git Server"", ""probe"": ""Git CI Test Injection""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Confirm ACL configurations and verify probe base for VerneMQ on host2","[
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-acl""},
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-base-probe""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Perform Metasploit test on Mosquitto MQTT broker.","[
+  {""host"": ""10.3.14.15 – Mosquitto MQTT Broker"", ""probe"": ""metasploit-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Check TLS settings on the LLM API and evaluate with sslyze.","[
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Run lightweight vulnerability scan on Nginx host.","[
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""lightweight-vuln-scan""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Perform a full integrity baseline scan across LLM API and Host7, also ensure assurance engine hooks are active","[
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""aide-oneshot-new""},
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""aide-oneshot-new""},
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""assurance-engine-basic-probe""},
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""assurance-engine-basic-probe""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Check for outdated TLS configurations across LLM API and Nginx","[
+  {""host"": ""10.3.14.17 – LLM Model API"", ""probe"": ""sslyze""},
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Launch curl-based basic reachability checks and analyze web fingerprinting on Nginx","[
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""curl""},
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""infowebsite""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Identify network-wide SSH misconfigurations, ensure none of the nodes expose weak settings","[
+        {""host"": ""10.3.14.17 – Every host"", ""probe"": ""ssh-scan""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.11 - VerneMQ"", ""probe"": ""vernemq-acl""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-base-probe""},
+        {""host"": ""10.3.14.16 - VerneMQ"", ""probe"": ""vernemq-acl""},
+        {""host"": ""10.3.14.15 - Mosquitto"", ""probe"": ""mosquitto-base-probe""},
+        {""host"": ""10.3.14.1 – Apache admin panel"", ""probe"": ""apache-cis""},
+        {""host"": ""10.3.14.15 - Apache Web server"", ""probe"": ""apache-cis""}
+    ]"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Run Prometheus metric bounds checks on Host7 to validate system health.","[
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""Prometheus Raw""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Perform comprehensive ACL check and MQTT fuzzing for VerneMQ  brokers.","[
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-acl""},
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-fuzzing""},
+  {""host"": ""10.3.14.16 – VerneMQr"", ""probe"": ""vernemq-fuzzing""}, {""host"": ""10.3.14.15 – VerneMQ"", ""probe"": ""vernemq-acl""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Conduct a vulnerability triage using Metasploit and OpenVAS across Nginx and Mosquitto brokers","[
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""metasploit-new""},
+  {""host"": ""10.3.14.10 – Nginx"", ""probe"": ""openvas-new""},
+  {""host"": ""10.3.14.15 – Mosquitto MQTT Broker"", ""probe"": ""metasploit-new""},
+  {""host"": ""10.3.14.15 – Mosquitto MQTT Broker"", ""probe"": ""openvas-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify CIS compliance for Apache web servers","[
+  {""host"": ""10.3.14.1 – Nginx"", ""probe"": ""apache-cis""},
+  {""host"": ""10.3.14.15 – Nginx"", ""probe"": ""apache-cis""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Check if Host7 and VerneMQ on host2 are leaking information via misconfigured TLS","[
+  {""host"": ""10.3.14.16 – Host7"", ""probe"": ""sslyze""},
+  {""host"": ""10.3.14.11 – VerneMQ"", ""probe"": ""vernemq-tls-server""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the Mosquitto broker is using TLS, has a proper ACL, and is exposing Prometheus metrics","[
+  {""host"": ""10.3.14.15 - Mosquitto broker"", ""probe"": ""mosquitto-base-probe""},
+  {""host"": ""10.3.14.15 - Mosquitto broker"", ""probe"": ""vernemq-tls-server""},
+  {""host"": ""10.3.14.15 - Mosquitto broker"", ""probe"": ""vernemq-acl""},
+  {""host"": ""10.3.14.15 - Prometheus metrics"", ""probe"": ""Prometheus Raw""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that R0 has its WAF configuration checked against known attack patterns.","[
+  {""host"": ""10.3.14.1"", ""probe"": ""pfsense-waf""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the MQTT broker running on Host2 is tested for TLS, ACL usage, CVEs, and unexpected behaviors","[
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-tls-server""},
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-acl""},
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-cve""},
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-fuzzing""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that Host6 is running a compliant MySQL configuration and has a functioning Mosquitto broker setup","[
+  {""host"": ""10.3.14.15"", ""probe"": ""mysql-conf""},
+  {""host"": ""10.3.14.15"", ""probe"": ""mosquitto-base-probe""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the nginx server on Host1 is configured securely according to best practices","[
+  {""host"": ""10.3.14.10"", ""probe"": ""nginx-conf""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that Host8, which serves a machine learning model API, is evaluated for integrity and evasion attacks.","[
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-integrity-behavior-simple""},
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-robustness-evasion""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that Host4 serving Traefik as API gateway and load balancer has been assessed using OpenVAS and Heartbleed probes","[
+  {""host"": ""10.3.14.13"", ""probe"": ""openvas-new""},
+  {""host"": ""10.3.14.13"", ""probe"": ""heartbleed-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the Apache admin panel on R0 is checked against CIS benchmarks and TLS misconfigurations","[
+  {""host"": ""10.3.14.1"", ""probe"": ""apache-cis""},
+  {""host"": ""10.3.14.1"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that all hosts are reachable over SSH on port 2222 and comply with Mozilla SSH guidelin","[
+  {""host"": ""10.3.14.1"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.10"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.11"", ""probe"": ""ssh-scan""},
+  {""host"": ""143.34.2.1"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.13"", ""probe"": ""ssh-scan""},
+  {""host"": ""56.3.1.42"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.15"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.16"", ""probe"": ""ssh-scan""},
+  {""host"": ""10.3.14.17"", ""probe"": ""ssh-scan""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the host2 machine hosting the main message queue for devices has no CVEs and uses proper TLS settings","[
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-cve""},
+  {""host"": ""10.3.14.11"", ""probe"": ""vernemq-tls-server""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the load distribution and API entrypoint node are scanned for known vulnerabilities and outdated TLS protocols.","[
+  {""host"": ""10.3.14.13"", ""probe"": ""openvas-new""},
+  {""host"": ""10.3.14.13"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the host running the caching and centralized logging services has secure port exposure and a valid TLS configuration","[
+  {""host"": ""143.34.2.1"", ""probe"": ""portlist""},
+  {""host"": ""143.34.2.1"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the primary database instance for the application meets MySQL config standards and hasn't been tampered with.","[
+  {""host"": ""10.3.14.11"", ""probe"": ""mysql-conf""},
+  {""host"": ""10.3.14.11"", ""probe"": ""aide-oneshot-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the system handling external model inference is robust against evasion and model poisoning.","[
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-robustness-evasion""},
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-robustness-poisoning""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the server responsible for cloud backup storage enforces secure file access and TLS configuration.","[
+  {""host"": ""56.3.1.42"", ""probe"": ""sslyze""},
+  {""host"": ""56.3.1.42"", ""probe"": ""aide-oneshot-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the host supporting system-level monitoring and MQTT fallback service is free of file integrity violations and follows best practices.","[
+  {""host"": ""10.3.14.15"", ""probe"": ""aide-oneshot-new""},
+  {""host"": ""10.3.14.15"", ""probe"": ""mosquitto-base-probe""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the server used for file storage and secondary message brokering has compliant configuration for SQL and MQTT","[
+  {""host"": ""10.3.14.16"", ""probe"": ""postgressql-conf""},
+  {""host"": ""10.3.14.16"", ""probe"": ""vernemq-base-probe""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that all systems with a public IP are reachable via SSH and do not use outdated cipher suites.","[
+  {""host"": ""143.34.2.1"", ""probe"": ""ssh-scan""},
+  {""host"": ""56.3.1.42"", ""probe"": ""ssh-scan""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the system responsible for firewalling, DNS, and admin panel access complies with both CIS and pfSense hardening practices.","[
+  {""host"": ""10.3.14.1"", ""probe"": ""apache-cis""},
+  {""host"": ""10.3.14.1"", ""probe"": ""pfsense-audit""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the broker on host7 used for secondary message queuing adheres to both CVE mitigation and ACL-based authorization practices.","[
+  {""host"": ""10.3.14.16"", ""probe"": ""vernemq-cve""},
+  {""host"": ""10.3.14.16"", ""probe"": ""vernemq-acl""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the infrastructure node managing backups and long-term storage is safe from misconfiguration and remote memory disclosure.","[
+  {""host"": ""56.3.1.42"", ""probe"": ""aide-oneshot-new""},
+  {""host"": ""56.3.1.42"", ""probe"": ""heartbleed-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the host storing the main application state is not running with a vulnerable SQL engine and that integrity scans pass.","[
+  {""host"": ""10.3.14.11"", ""probe"": ""mysql-conf""},
+  {""host"": ""10.3.14.11"", ""probe"": ""aide-oneshot-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that host1 managing both application logic and TLS-protected endpoints passes vulnerability scans and follows TLS hardening","[
+  {""host"": ""10.3.14.10"", ""probe"": ""sslyze""},
+  {""host"": ""10.3.14.10"", ""probe"": ""openvas-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the host acting as a frontend cache and log aggregator maintains secure exposure and no vulnerability leakage","[
+  {""host"": ""143.34.2.1"", ""probe"": ""web-vuln-scan""},
+  {""host"": ""143.34.2.1"", ""probe"": ""aide-oneshot-new""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the endpoint responsible for model interaction is robust against both direct evasions and poisoning vectors.","[
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-robustness-evasion""},
+  {""host"": ""10.3.14.17"", ""probe"": ""ai-robustness-poisoning""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the infrastructure component managing system-wide access policies enforces SSH and firewall compliance","[
+  {""host"": ""10.3.14.1"", ""probe"": ""fairness-ssh""},
+  {""host"": ""10.3.14.1"", ""probe"": ""pfsense-audit""}, {""host"": ""10.3.14.1"", ""probe"": ""pfsense-waf""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the secondary data store does not expose vulnerable SQL configurations or web interfaces.","[
+  {""host"": ""10.3.14.16"", ""probe"": ""mysql-conf""},
+  {""host"": ""10.3.14.16"", ""probe"": ""apache-cis""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that the system handling public-facing TLS ingress follows hardened certificate and cipher configuration","[
+  {""host"": ""10.3.14.13"", ""probe"": ""sslyze""}
+]
+"
+"R0: 10.3.14.1
+    - PfSense installation (DHCP server, Apache admin panel on port 443, WAF, DNS)
+    
+Host1: 10.3.14.10 
+    - Application server (nginx port 443)
+    
+Host2: 10.3.14.11  
+    - Primary Database server (MySQL)
+    - VerneMQ MQTT Broker (on port 1338)
+    
+Host3: 143.34.2.1 
+    - Cache server (AWS ElastiCache port 5600)
+    - Logging server (AWS ElasticSearch port 8088)
+    
+Host4: 10.3.14.13  
+    - Load balancer (Traefik port 3000)
+    - API Gateway (Traefik port 3000)
+    
+Host5: 56.3.1.42  
+    - Backup server (AWS Backup bucket port 8000)
+    
+Host6: 10.3.14.15  
+    - Monitoring server (Grafana on Apache Web server on port 1337)
+    - Mosquitto MQTT Broker (on port 1338)
+    - Secondary Database server (MySQL)
+    
+Host7: 10.3.14.16  
+    - File storage server (PostgresSQL on port 8080)
+    - VerneMQ MQTT Broker (on port 8338) 
+    
+Host8: 10.3.14.17
+    - LLM model API (on port 9090)
+    
+Every host can be accessed via ssh on port 2222
+    
+Verify that each host maintains nominal disk usage and does not contain unauthorized setuid files across its file systems","[
+  {""host"": ""10.3.14.1"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.1"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.10"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.10"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.11"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.11"", ""probe"": ""find""},
+  
+  {""host"": ""143.34.2.1"", ""probe"": ""disk-free""},
+  {""host"": ""143.34.2.1"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.13"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.13"", ""probe"": ""find""},
+  
+  {""host"": ""56.3.1.42"", ""probe"": ""disk-free""},
+  {""host"": ""56.3.1.42"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.15"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.15"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.16"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.16"", ""probe"": ""find""},
+  
+  {""host"": ""10.3.14.17"", ""probe"": ""disk-free""},
+  {""host"": ""10.3.14.17"", ""probe"": ""find""}
+]
+"
